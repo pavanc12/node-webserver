@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
@@ -12,7 +13,7 @@ app.use((req, res, next) => {
     var now = new Date().toString();
     var log = `${now}: ${req.method} - ${req.url}`;
     console.log(log);
-    fs.appendFile('logs/server.log', log +'\n', (err)=>{
+    fs.appendFile('server.log', log +'\n', (err)=>{
         if(err)
             console.log('unable to write to server.log file');
     });
@@ -54,6 +55,6 @@ app.get('/bad', (req, res) => {
 });
 
 //Getting server on desired port
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
