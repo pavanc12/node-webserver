@@ -21,9 +21,9 @@ app.use((req, res, next) => {
 });
 
 //Maintainance window page
-app.use((req, res, next) => {
-    res.render('maintainance.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maintainance.hbs');
+// });
 
 //Middleware for static pages in public folder
 app.use(express.static(__dirname + '/public'));
