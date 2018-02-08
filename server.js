@@ -36,15 +36,20 @@ hbs.registerHelper('capitalizeText', (text) => text.toUpperCase());
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
-        welcomeMessage: 'Welcome to Home page :)',
-        currentYear: new Date().getFullYear()
+        welcomeMessage: 'Welcome to Home page :)'
+    })
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+        welcomeMessage: 'Welcome to Projects portfolio :)'
     })
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About Page',
-        currentYear: new Date().getFullYear()
+        pageTitle: 'About Page'
     });
 });
 
